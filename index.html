@@ -7,9 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="canonical" href="https://mkdigitalcreativity.netlify.app/" />
 
-    <meta name="title" content="Digital Marketing Agency | SEO, PPC & Social Media Experts">
-    <meta name="description" content="Results-driven digital marketing agency offering SEO, PPC, social media, and web solutions to grow your business online.">
-
+    <meta name="description" content="Results-driven digital marketing agency offering SEO, PPC, social media, and web solutions.">
+    
     <link href="img/favicon.ico" rel="icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,43 +33,50 @@
             padding: 30px 15px;
             color: var(--dark);
             font-weight: 500;
-            outline: none;
         }
 
         .hero-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             padding: 120px 0;
             clip-path: ellipse(150% 100% at 50% 0%);
+            margin-bottom: 5rem;
         }
 
         .feature-item, .service-item {
             transition: .5s;
-            border: 1px solid transparent;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .feature-item:hover, .service-item:hover {
             margin-top: -15px;
             box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, .1);
+            background: #ffffff !important;
             border-color: var(--secondary);
+        }
+
+        .progress { height: 10px; border-radius: 10px; }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-right: 45px;
+        }
+
+        .section-title::after {
+            position: absolute;
+            content: "";
+            width: 30px;
+            height: 2px;
+            top: 50%;
+            right: 0;
+            background: var(--secondary);
         }
 
         .dropdown-menu {
             border: none;
             box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, .1);
             animation: slideInUp 0.3s;
-        }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .btn-hover-grow {
-            transition: transform 0.3s;
-        }
-
-        .btn-hover-grow:hover {
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -81,7 +87,7 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand p-0">
-                    <h1 class="m-0 text-primary">Graphyzen</h1>
+                    <h2 class="m-0 text-primary">Graphyzen</h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -95,29 +101,30 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="seo.html" class="dropdown-item">SEO</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonials</a>
+                                <a href="seo.html" class="dropdown-item">SEO Optimization</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div>
                         
                         <a href="project.html" class="nav-item nav-link">Projects</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 d-none d-lg-block btn-hover-grow">Get Started</a>
+                    <a href="contact.html" class="btn btn-primary rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
                 </div>
             </nav>
 
-            <div class="container-xxl hero-header mb-5">
+            <div class="container-xxl hero-header">
                 <div class="container px-lg-5">
                     <div class="row g-5 align-items-center">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animate__animated animate__fadeInLeft">A Creative Digital Marketing Agency That Builds Powerful Brands</h1>
-                            <p class="text-white pb-3 animate__animated animate__fadeInLeft">Graphyzen is a results-driven digital marketing and creative studio helping brands grow online through SEO, Instagram marketing, graphic design, and video content.</p>
-                            <a href="about.html" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animate__animated animate__zoomIn">Read More</a>
-                            <a href="contact.html" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animate__animated animate__zoomIn">Contact Us</a>
+                            <h1 class="text-white mb-4 animate__animated animate__slideInDown">A Creative Digital Marketing Agency That Builds Powerful Brands</h1>
+                            <p class="text-white pb-3 animate__animated animate__slideInDown">Graphyzen is a results-driven digital marketing and creative studio helping brands grow online through SEO, Instagram marketing, graphic design, and video content.</p>
+                            <a href="about.html" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animate__animated animate__slideInLeft">Read More</a>
+                            <a href="contact.html" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animate__animated animate__slideInRight">Contact Us</a>
                         </div>
-                        <div class="col-lg-6 text-center text-lg-end">
+                        <div class="col-lg-6 text-center">
                             <img class="img-fluid animate__animated animate__zoomIn" src="img/hero.png" alt="Hero">
                         </div>
                     </div>
@@ -129,36 +136,113 @@
             <div class="container py-5 px-lg-5">
                 <div class="row g-4">
                     <div class="col-lg-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-                        <div class="feature-item bg-light rounded text-center p-4">
+                        <div class="feature-item bg-light text-center p-4">
                             <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
                             <h5 class="mb-3">Digital Marketing</h5>
-                            <p class="m-0">Performance-driven strategies that increase visibility, engagement, and leads.</p>
+                            <p class="m-0">Performance-driven digital marketing strategies that increase visibility and leads.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-                        <div class="feature-item bg-light rounded text-center p-4">
+                        <div class="feature-item bg-light text-center p-4">
                             <i class="fa fa-3x fa-search text-primary mb-4"></i>
                             <h5 class="mb-3">SEO & Backlinks</h5>
-                            <p class="m-0">Rank higher on Google with smart organic growth strategies.</p>
+                            <p class="m-0">SEO services focused on Google rankings, organic traffic, and long-term brand growth.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-                        <div class="feature-item bg-light rounded text-center p-4">
-                            <i class="fa fa-3x fa-paint-brush text-primary mb-4"></i>
+                        <div class="feature-item bg-light text-center p-4">
+                            <i class="fa fa-3x fa-laptop-code text-primary mb-4"></i>
                             <h5 class="mb-3">Design & Branding</h5>
-                            <p class="m-0">Creative visuals and social media content that connect with your audience.</p>
+                            <p class="m-0">Creative designs, branding visuals, and social media content for your audience.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="container-fluid bg-primary text-light footer mt-5">
-            <div class="container py-4 text-center">
-                <p class="mb-1">© <strong>Graphyzen</strong>. All Rights Reserved.</p>
-                <small>Digital Marketing & Creative Studio | Madurai</small>
+        <div class="container-xxl py-5">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <p class="section-title text-secondary">About Us<span></span></p>
+                        <h2 class="mb-4">Creative Digital Solutions Built for Growth</h2>
+                        <p class="mb-4">Graphyzen helps brands stand out online with a powerful mix of creativity, strategy, and technology.</p>
+                        
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Digital Marketing</p>
+                                <p class="mb-2">90%</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">SEO & Backlinks</p>
+                                <p class="mb-2">95%</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-secondary" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Design & Branding</p>
+                                <p class="mb-2">92%</p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-dark" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3">Know More</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="img-fluid animate__animated animate__zoomIn" src="img/about.png">
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
+
+        <div class="container-xxl py-5">
+            <div class="container py-5 px-lg-5">
+                <div class="text-center animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                    <p class="section-title text-secondary justify-content-center"><span></span>Our Services<span></span></p>
+                    <h2 class="text-center mb-5">What We Offer</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <div class="service-item d-flex flex-column text-center rounded p-4">
+                            <i class="fa fa-search fa-2x text-primary mb-3"></i>
+                            <h5>SEO Optimization</h5>
+                            <p>Rank higher on Google with smart SEO strategies and organic growth.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                        <div class="service-item d-flex flex-column text-center rounded p-4">
+                            <i class="fab fa-instagram fa-2x text-primary mb-3"></i>
+                            <h5>Instagram Marketing</h5>
+                            <p>Reels, posts, and growth strategies that convert followers into customers.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                        <div class="service-item d-flex flex-column text-center rounded p-4">
+                            <i class="fa fa-paint-brush fa-2x text-primary mb-3"></i>
+                            <h5>Graphic Design</h5>
+                            <p>Creative visuals that build a strong and memorable brand identity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-primary text-light footer mt-5">
+            <div class="container py-4 text-center">
+                <p class="mb-1">© Graphyzen. All Rights Reserved.</p>
+                <p class="mb-0">Digital Marketing & Creative Studio | Madurai</p>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
