@@ -9,21 +9,11 @@
     <link rel="canonical" href="https://mkdigitalcreativity.netlify.app/" /> 
     <meta name="title" content="Digital Marketing Agency | SEO, PPC & Social Media Experts">
     <meta name="description" content="Results-driven digital marketing agency offering SEO, PPC, social media, and web solutions to grow your business online.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mkdigitalcreativity.netlify.app/">
-    <meta property="og:title" content="Digital Marketing Agency | SEO, PPC & Social Media Experts">
-    <meta property="og:description" content="Results-driven digital marketing agency offering SEO, PPC, social media, and web solutions to grow your business online.">
-    <meta property="og:image" content="https://mkdigitalcreativity.netlify.app/img/about.png">
-    <meta name="keywords" content="Digital Marketing Agency">
-    <meta name="author" content="Mohan">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jeyasuryagraphyzen.netlify.app/" },
       "headline": "Creative Digital Solutions Built for Growth",
-      "description": "Graphyzen helps brands stand out online with a powerful mix of creativity, strategy, and technology.",
       "datePublished": "2026-02-05"
     }
     </script>
@@ -37,6 +27,7 @@
             --primary: #2124B1;
             --secondary: #4777F5;
             --accent: #00f2ff;
+            --glow: rgba(0, 242, 255, 0.5);
             --dark: #060918;
         }
 
@@ -45,10 +36,10 @@
             background-color: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
+            cursor: none; /* Custom glow cursor */
         }
 
-        /* MASS CURSOR */
+        /* --- MASS GLOW CURSOR --- */
         #magic-cursor {
             position: fixed;
             width: 30px;
@@ -57,68 +48,85 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
+            box-shadow: 0 0 20px var(--glow), inset 0 0 10px var(--glow);
             transition: transform 0.1s ease-out;
         }
 
-        #cursor-dot {
+        .cursor-dot {
             position: fixed;
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
+            width: 8px;
+            height: 8px;
+            background: #fff;
             border-radius: 50%;
-            z-index: 9999;
+            z-index: 10000;
             pointer-events: none;
+            box-shadow: 0 0 15px #fff;
         }
 
-        /* ULTRA UI */
+        .trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.6;
+        }
+
+        /* --- UI STYLING --- */
         .navbar {
             backdrop-filter: blur(20px);
-            background: rgba(6, 9, 24, 0.8);
+            background: rgba(6, 9, 24, 0.85);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .hero-header {
-            padding: 150px 0 100px;
-            background: radial-gradient(circle at 20% 30%, rgba(33, 36, 177, 0.2) 0%, transparent 50%);
+            padding: 180px 0 100px;
+            background: radial-gradient(circle at center, rgba(33, 36, 177, 0.2) 0%, transparent 70%);
         }
 
         .btn-mass {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white; border: none; padding: 15px 40px; border-radius: 100px;
-            font-weight: 700; transition: 0.3s; display: inline-block;
-            box-shadow: 0 10px 20px rgba(33, 36, 177, 0.4);
+            font-weight: 700; transition: 0.4s; position: relative;
+            box-shadow: 0 0 15px rgba(33, 36, 177, 0.5);
         }
 
-        .btn-mass:hover { transform: scale(1.1); box-shadow: 0 15px 30px var(--accent); color: white; }
+        .btn-mass:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--accent);
+            color: white;
+        }
 
         .feature-item, .service-item {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px; padding: 40px; transition: 0.5s;
+            border-radius: 30px; padding: 40px; transition: 0.5s;
         }
 
         .feature-item:hover, .service-item:hover {
             border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
             transform: translateY(-15px) rotate(1deg);
-            background: rgba(255, 255, 255, 0.1);
         }
 
         .progress { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; }
-        .progress-bar { background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+        .progress-bar { background: linear-gradient(90deg, var(--accent), var(--secondary)); box-shadow: 0 0 10px var(--accent); }
 
         .floating-img { animation: floatHero 6s ease-in-out infinite; }
-        @keyframes floatHero { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
+        @keyframes floatHero { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
         .dropdown-menu { background: var(--dark); border: 1px solid rgba(255,255,255,0.1); }
         .dropdown-item { color: #fff; }
-        .dropdown-item:hover { background: var(--primary); }
+        .dropdown-item:hover { background: var(--primary); color: #fff; }
     </style>
 </head>
 
 <body>
     <div id="magic-cursor"></div>
-    <div id="cursor-dot"></div>
+    <div class="cursor-dot"></div>
 
     <div class="container-xxl p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-4 px-lg-5 py-3 sticky-top">
@@ -126,7 +134,7 @@
                 <h2 class="m-0 fw-bold">Graphyzen</h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
@@ -155,10 +163,10 @@
                         <h1 class="display-4 fw-bold mb-4">A Creative Digital Marketing Agency That Builds Powerful Brands</h1>
                         <p class="lead mb-4 opacity-75">Graphyzen is a results-driven digital marketing and creative studio helping brands grow online through SEO, Instagram marketing, graphic design, and video content.</p>
                         <a href="about.html" class="btn btn-mass me-3">Read More</a>
-                        <a href="contact.html" class="btn btn-outline-light rounded-pill px-4">Contact Us</a>
+                        <a href="contact.html" class="btn btn-outline-light rounded-pill px-4 py-3">Contact Us</a>
                     </div>
                     <div class="col-lg-6 text-center" data-aos="zoom-in">
-                        <img class="img-fluid floating-img" src="img/hero.png" alt="Digital Marketing Agency">
+                        <img class="img-fluid floating-img" src="img/hero.png" alt="Hero">
                     </div>
                 </div>
             </div>
@@ -169,22 +177,22 @@
                 <div class="row g-4">
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="feature-item text-center">
-                            <i class="fa fa-3x fa-mail-bulk text-accent mb-4"></i>
-                            <h5 class="mb-3">Digital Marketing</h5>
+                            <i class="fa fa-3x fa-mail-bulk text-accent mb-4" style="text-shadow: 0 0 15px var(--glow);"></i>
+                            <h5>Digital Marketing</h5>
                             <p class="m-0 opacity-75">Performance-driven digital marketing strategies that increase visibility, engagement, and leads across platforms.</p>
                         </div>
                     </div>
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-item text-center">
-                            <i class="fa fa-3x fa-search text-accent mb-4"></i>
-                            <h5 class="mb-3">SEO & Backlinks</h5>
+                            <i class="fa fa-3x fa-search text-accent mb-4" style="text-shadow: 0 0 15px var(--glow);"></i>
+                            <h5>SEO & Backlinks</h5>
                             <p class="m-0 opacity-75">SEO services focused on Google rankings, organic traffic, and long-term brand growth.</p>
                         </div>
                     </div>
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="feature-item text-center">
-                            <i class="fa fa-3x fa-laptop-code text-accent mb-4"></i>
-                            <h5 class="mb-3">Design & Branding</h5>
+                            <i class="fa fa-3x fa-laptop-code text-accent mb-4" style="text-shadow: 0 0 15px var(--glow);"></i>
+                            <h5>Design & Branding</h5>
                             <p class="m-0 opacity-75">Creative designs, branding visuals, and social media content that connect with your audience.</p>
                         </div>
                     </div>
@@ -196,25 +204,21 @@
             <div class="container py-5 px-lg-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6" data-aos="fade-right">
-                        <p class="text-accent fw-bold text-uppercase">About Us</p>
+                        <h6 class="text-accent text-uppercase fw-bold mb-2">About Us</h6>
                         <h2 class="mb-4">Creative Digital Solutions Built for Growth</h2>
-                        <p class="mb-4">Graphyzen helps brands stand out online with a powerful mix of creativity, strategy, and technology. We focus on measurable results and long-term growth.</p>
-                        <div class="skill mb-4">
+                        <p class="mb-4">Graphyzen helps brands stand out online with a powerful mix of creativity, strategy, and technology.</p>
+                        <div class="mb-4">
                             <div class="d-flex justify-content-between mb-2"><span>Digital Marketing</span><span>90%</span></div>
                             <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
                         </div>
-                        <div class="skill mb-4">
+                        <div class="mb-4">
                             <div class="d-flex justify-content-between mb-2"><span>SEO & Backlinks</span><span>95%</span></div>
                             <div class="progress"><div class="progress-bar" style="width: 95%"></div></div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between mb-2"><span>Design & Branding</span><span>92%</span></div>
-                            <div class="progress"><div class="progress-bar" style="width: 92%"></div></div>
                         </div>
                         <a href="about.html" class="btn btn-mass mt-3">Know More</a>
                     </div>
                     <div class="col-lg-6" data-aos="fade-left">
-                        <img class="img-fluid rounded-5 shadow-lg" src="img/about.png" alt="About Graphyzen">
+                        <img class="img-fluid rounded-5 shadow-lg" src="img/about.png">
                     </div>
                 </div>
             </div>
@@ -222,8 +226,7 @@
 
         <section class="py-5">
             <div class="container py-5 px-lg-5">
-                <p class="text-accent text-center fw-bold">Our Services</p>
-                <h2 class="text-center mb-5">What We Offer</h2>
+                <h2 class="text-center mb-5" data-aos="fade-up">What We Offer</h2>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="service-item text-center">
@@ -251,10 +254,8 @@
         </section>
 
         <footer class="py-5 mt-5 border-top border-secondary text-center">
-            <div class="container">
-                <p class="mb-1">© Graphyzen. All Rights Reserved.</p>
-                <p class="mb-0 opacity-50">Digital Marketing & Creative Studio | Madurai</p>
-            </div>
+            <p class="mb-1">© Graphyzen. All Rights Reserved.</p>
+            <p class="mb-0 opacity-50">Digital Marketing & Creative Studio | Madurai</p>
         </footer>
     </div>
 
@@ -266,16 +267,30 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // MASS CURSOR LOGIC
+        // --- GLOW CURSOR & TRAIL LOGIC ---
         const cursor = document.getElementById('magic-cursor');
-        const dot = document.getElementById('cursor-dot');
+        const dot = document.querySelector('.cursor-dot');
 
         window.addEventListener('mousemove', (e) => {
             gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1 });
-            gsap.to(cursor, { x: e.clientX - 15, y: e.clientY - 15, duration: 0.3 });
+            gsap.to(cursor, { x: e.clientX - 15, y: e.clientY - 15, duration: 0.2 });
+            
+            // Create Glow Trail
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = e.clientX - 5 + 'px';
+            trail.style.top = e.clientY - 5 + 'px';
+            document.body.appendChild(trail);
+            
+            gsap.to(trail, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.6,
+                onComplete: () => trail.remove()
+            });
         });
 
-        // Magnetic Effect for Buttons
+        // Magnetic Button Effect
         document.querySelectorAll('.btn-mass, .nav-link, .service-item').forEach(btn => {
             btn.addEventListener('mousemove', (e) => {
                 const rect = btn.getBoundingClientRect();
