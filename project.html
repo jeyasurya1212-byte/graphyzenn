@@ -3,219 +3,357 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DGital - Digital Agency HTML Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    
+    <link rel="canonical" href="https://mkdigitalcreativity.netlify.app/project.html" />
 
-    <!-- Favicon -->
+    <title>Our Projects | JKD Digital Portfolio</title>
+    <meta name="title" content="Our Projects | JKD Digital Portfolio">
+    <meta name="description" content="Explore our latest digital marketing projects, web designs, and branding case studies. See how JKD delivers results for clients worldwide.">
+    <meta name="keywords" content="Digital Marketing Projects, Web Design Portfolio, Branding Case Studies, JKD Work">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mkdigitalcreativity.netlify.app/project.html">
+    <meta property="og:title" content="JKD Project Portfolio">
+    <meta property="og:description" content="Check out our successful projects in SEO, Web Design, and Social Media.">
+    
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "JKD Project Portfolio",
+      "description": "A collection of our best digital marketing and web design projects.",
+      "provider": {
+        "@type": "Organization",
+        "name": "JKD Digital Studio"
+      }
+    }
+    </script>
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #00f2ff;
+            --dark: #060918;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark);
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: none;
+        }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+        /* --- NEON CURSOR --- */
+        #magic-cursor {
+            position: fixed; width: 30px; height: 30px;
+            border: 2px solid var(--accent); border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            transition: transform 0.1s ease-out;
+        }
+        #cursor-dot {
+            position: fixed; width: 8px; height: 8px;
+            background: #fff; border-radius: 50%;
+            z-index: 10000; pointer-events: none;
+        }
+
+        /* --- UI STYLES --- */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(6, 9, 24, 0.85);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-header {
+            padding: 150px 0 80px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 242, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .breadcrumb-item a { color: var(--accent); text-decoration: none; }
+        .breadcrumb-item.active { color: rgba(255,255,255,0.6); }
+
+        /* PORTFOLIO FILTERS */
+        #portfolio-flters li {
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px 5px;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+            color: rgba(255,255,255,0.7);
+            border: 1px solid var(--border);
+        }
+        #portfolio-flters li:hover, #portfolio-flters li.active {
+            color: var(--dark);
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* PORTFOLIO ITEMS */
+        .portfolio-item {
+            position: relative;
+        }
+        
+        .portfolio-wrap {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .portfolio-img {
+            transition: 0.5s;
+            width: 100%;
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(6, 9, 24, 0.9);
+            backdrop-filter: blur(5px);
+            transition: 0.5s;
+            border-top: 1px solid var(--accent);
+        }
+
+        .portfolio-wrap:hover .portfolio-info {
+            bottom: 0;
+        }
+        .portfolio-wrap:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-links a {
+            color: var(--accent);
+            font-size: 24px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .portfolio-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Magnetic Button */
+        .btn-mass {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none; color: white; padding: 12px 35px;
+            border-radius: 50px; font-weight: 700; transition: 0.3s;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+        .btn-mass:hover { transform: scale(1.05); color: #fff; box-shadow: 0 0 25px var(--accent); }
+
+        /* Footer */
+        .newsletter {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        .form-control {
+            background: rgba(255,255,255,0.1); border: 1px solid var(--border); color: #fff;
+        }
+        .form-control::placeholder { color: rgba(255,255,255,0.5); }
+
+        .nav-link { color: #fff !important; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+        .dropdown-menu { background: var(--dark); border: 1px solid var(--border); }
+        .dropdown-item { color: #fff; }
+        .dropdown-item:hover { background: var(--primary); }
+    </style>
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+    <div id="magic-cursor"></div>
+    <div id="cursor-dot"></div>
 
-
-        <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">DGital</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="project.html" class="nav-item nav-link active">Project</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
+    <div class="container-xxl p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-4 px-lg-5 py-3 sticky-top">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="m-0 fw-bold text-transparent bg-clip-text bg-gradient" style="background: linear-gradient(to right, #fff, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">JKD</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>
+                    <a href="project.html" class="nav-item nav-link active">Project</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu">
+                            <a href="seo.html" class="dropdown-item">SEO</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-            </nav>
+                <a href="contact.html" class="btn btn-mass d-none d-lg-block">Get Started</a>
+            </div>
+        </nav>
 
-            <div class="container-xxl py-5 bg-primary hero-header">
-                <div class="container my-5 py-5 px-lg-5">
-                    <div class="row g-5 py-5">
-                        <div class="col-12 text-center">
-                            <h1 class="text-white animated slideInDown">Project</h1>
-                            <hr class="bg-white mx-auto mt-0" style="width: 90px;">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                    <li class="breadcrumb-item text-white active" aria-current="page">Project</li>
-                                </ol>
-                            </nav>
-                        </div>
+        <div class="container-xxl hero-header">
+            <div class="container px-lg-5">
+                <div class="row g-5">
+                    <div class="col-12 text-center" data-aos="fade-down">
+                        <h1 class="text-white display-4 fw-bold animated slideInDown">Our Projects</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                            </ol>
+                        </nav>
+                        <p class="lead opacity-75 mt-3">Showcasing our finest work in Design, Development, and Marketing.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Navbar & Hero End -->
 
-
-        <!-- Projects Start -->
         <div class="container-xxl py-5">
             <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Our Projects<span></span></p>
-                    <h1 class="text-center mb-5">Recently Completed Projects</h1>
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="section-title text-accent fw-bold text-uppercase">Portfolio</p>
+                    <h2 class="mb-5 display-6 fw-bold">Recently Completed Projects</h2>
                 </div>
+                
                 <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="col-12 text-center">
                         <ul class="list-inline mb-5" id="portfolio-flters">
                             <li class="mx-2 active" data-filter="*">All</li>
                             <li class="mx-2" data-filter=".first">Web Design</li>
                             <li class="mx-2" data-filter=".second">Graphic Design</li>
+                            <li class="mx-2" data-filter=".third">Digital Marketing</li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="row g-4 portfolio-container">
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-1.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">Digital Agency Website</h5>
+                                <p class="text-accent">Web Design / UI/UX</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-1.jpg" data-lightbox="portfolio" title="Digital Agency Website"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-2.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">Brand Identity Design</h5>
+                                <p class="text-accent">Graphic Design</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-2.jpg" data-lightbox="portfolio" title="Brand Identity"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                    <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-3.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">Social Media Campaign</h5>
+                                <p class="text-accent">Marketing</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-3.jpg" data-lightbox="portfolio" title="Social Media Campaign"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-4.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">Product Packaging</h5>
+                                <p class="text-accent">Graphic Design</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-4.jpg" data-lightbox="portfolio" title="Product Packaging"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-5.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-5.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">E-commerce Website</h5>
+                                <p class="text-accent">Web Development</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-5.jpg" data-lightbox="portfolio" title="E-commerce Website"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/portfolio-6.jpg" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                    <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="portfolio-wrap">
+                            <img class="img-fluid portfolio-img" src="img/portfolio-6.jpg" alt="">
+                            <div class="portfolio-info">
+                                <h5 class="text-white">SEO Growth Strategy</h5>
+                                <p class="text-accent">Digital Marketing</p>
+                                <div class="portfolio-links">
+                                    <a href="img/portfolio-6.jpg" data-lightbox="portfolio" title="SEO Strategy"><i class="fa fa-eye"></i></a>
+                                    <a href="#" title="More Details"><i class="fa fa-link"></i></a>
                                 </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Projects End -->
-        
+        <div class="container-xxl newsletter py-5" data-aos="fade-up">
+            <div class="container py-5 px-lg-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <p class="section-title text-white justify-content-center"><span></span>Newsletter<span></span></p>
+                        <h1 class="text-center text-white mb-4">Stay Always In Touch</h1>
+                        <p class="text-white mb-4 opacity-75">Subscribe to get the latest updates, digital trends, and marketing tips directly to your inbox.</p>
+                        <div class="position-relative w-100 mt-3">
+                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email" style="height: 48px;">
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-accent fs-4"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid bg-dark text-light footer border-top border-secondary wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
                         <p class="section-title text-white h5 mb-4">Address<span></span></p>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p><i class="fa fa-map-marker-alt me-3 text-accent"></i>Madurai, Tamil Nadu, India</p>
+                        <p><i class="fa fa-phone-alt me-3 text-accent"></i>+91 98765 43210</p>
+                        <p><i class="fa fa-envelope me-3 text-accent"></i>contact@jkd.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -225,41 +363,28 @@
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="about.html">About Us</a>
+                        <a class="btn btn-link" href="contact.html">Contact Us</a>
                         <a class="btn btn-link" href="">Privacy Policy</a>
                         <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <p class="section-title text-white h5 mb-4">Gallery<span></span></p>
                         <div class="row g-2">
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-1.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-2.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-3.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-4.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-5.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="img/portfolio-6.jpg" alt="Image">
-                            </div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-1.jpg" alt="Image"></div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-2.jpg" alt="Image"></div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-3.jpg" alt="Image"></div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-4.jpg" alt="Image"></div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-5.jpg" alt="Image"></div>
+                            <div class="col-4"><img class="img-fluid rounded" src="img/portfolio-6.jpg" alt="Image"></div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                        <p>Subscribe for latest updates.</p>
                         <div class="position-relative w-100 mt-3">
                             <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-accent fs-4"></i></button>
                         </div>
                     </div>
                 </div>
@@ -268,14 +393,12 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            &copy; <a class="border-bottom" href="#">JKD Digital Studio</a>, All Right Reserved. 
+                            Designed By <a class="border-bottom" href="#">JKD Team</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
+                                <a href="index.html">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>
@@ -285,26 +408,55 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({ duration: 1000, once: true });
+
+        // --- GLOW CURSOR LOGIC ---
+        const cursor = document.getElementById('magic-cursor');
+        const dot = document.getElementById('cursor-dot');
+
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1 });
+            gsap.to(cursor, { x: e.clientX - 15, y: e.clientY - 15, duration: 0.2 });
+        });
+
+        // Magnetic Buttons & Cards
+        document.querySelectorAll('.btn-mass, .portfolio-wrap').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(el, { x: x * 0.2, y: y * 0.2, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(el, { x: 0, y: 0, duration: 0.5 });
+            });
+        });
+
+        // Portfolio Isotope Filter
+        $(window).on('load', function () {
+            var portfolioIsotope = $('.portfolio-container').isotope({
+                itemSelector: '.portfolio-item',
+                layoutMode: 'fitRows'
+            });
+
+            $('#portfolio-flters li').on('click', function () {
+                $("#portfolio-flters li").removeClass('active');
+                $(this).addClass('active');
+
+                portfolioIsotope.isotope({ filter: $(this).data('filter') });
+            });
+        });
+    </script>
 </body>
-
 </html>
