@@ -30,7 +30,7 @@
             background-color: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
+            cursor: none; /* Custom Cursor Active */
         }
 
         /* --- MAGIC CURSOR --- */
@@ -47,7 +47,7 @@
             z-index: 10000; pointer-events: none;
         }
 
-        /* --- UI ELEMENTS --- */
+        /* --- NAVBAR --- */
         .navbar {
             backdrop-filter: blur(20px);
             background: rgba(6, 9, 24, 0.85);
@@ -59,6 +59,7 @@
             background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
         }
 
+        /* --- CONTACT FORM FIXES --- */
         .contact-form-container {
             background: var(--glass);
             backdrop-filter: blur(15px);
@@ -68,26 +69,43 @@
             transition: 0.4s;
         }
 
-        .contact-form-container:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
-        }
-
         .form-control {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid var(--border) !important;
+            color: #ffffff !important;
             border-radius: 12px;
             padding: 15px;
+            transition: 0.3s;
         }
 
         .form-control:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent);
-            color: #fff;
-            box-shadow: none;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--accent) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2) !important;
+            outline: none;
         }
 
+        /* Fix for White Text/Background issue when typing */
+        .form-floating > label {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: var(--accent) !important;
+        }
+
+        /* Auto-fill fix for Chrome */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #ffffff !important;
+            -webkit-box-shadow: 0 0 0px 1000px var(--dark) inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* --- UI COMPONENTS --- */
         .contact-info-item {
             background: var(--glass);
             border-radius: 20px;
@@ -150,31 +168,31 @@
 
     <div class="container-xxl hero-header text-center" data-aos="fade-down">
         <h1 class="display-4 fw-bold text-white">Let's Connect</h1>
-        <p class="lead opacity-75">Ready to start your digital transformation?</p>
+        <p class="lead opacity-75">We are here to help you build your digital empire.</p>
     </div>
 
     <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div class="row g-5">
                 <div class="col-lg-5" data-aos="fade-right">
-                    <p class="text-accent fw-bold text-uppercase">Contact Us</p>
-                    <h2 class="mb-4 fw-bold">Reach Out to JKD</h2>
+                    <p class="text-accent fw-bold text-uppercase">Contact Details</p>
+                    <h2 class="mb-4 fw-bold">Get In Touch</h2>
                     
                     <div class="contact-info-item">
                         <div class="icon-box"><i class="fa fa-map-marker-alt text-white"></i></div>
-                        <h5>Our Studio</h5>
+                        <h5>Our Location</h5>
                         <p class="mb-0 opacity-75">Madurai, Tamil Nadu, India</p>
                     </div>
 
                     <div class="contact-info-item">
                         <div class="icon-box"><i class="fa fa-envelope text-white"></i></div>
-                        <h5>Email Us</h5>
-                        <p class="mb-0 opacity-75">info@jkddigital.com</p>
+                        <h5>Email Address</h5>
+                        <p class="mb-0 opacity-75">hello@jkddigital.com</p>
                     </div>
 
                     <div class="contact-info-item">
                         <div class="icon-box"><i class="fa fa-phone-alt text-white"></i></div>
-                        <h5>Call Us</h5>
+                        <h5>Call Support</h5>
                         <p class="mb-0 opacity-75">+91 98765 43210</p>
                     </div>
                 </div>
@@ -185,30 +203,30 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Name">
-                                        <label for="name" class="text-white-50">Your Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Email">
-                                        <label for="email" class="text-white-50">Your Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject" class="text-white-50">Subject</label>
+                                        <label for="subject">Subject</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control" placeholder="Message" id="message" style="height: 150px"></textarea>
-                                        <label for="message" class="text-white-50">How can we help?</label>
+                                        <label for="message">Your Message</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-mass py-3" type="submit">Send Message Now</button>
+                                    <button class="btn btn-mass py-3" type="submit">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -218,11 +236,12 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-dark text-light border-top border-secondary pt-5 mt-5">
+    <footer class="container-fluid bg-dark text-light border-top border-secondary pt-5 mt-5">
         <div class="container py-4 text-center">
-            <p>© JKD Digital Studio. Designed with ❤️ by Jeyasurya & Mohan</p>
+            <p>© JKD Digital Studio. All Rights Reserved.</p>
+            <p class="small opacity-50">Designed & Managed by Jeyasurya & Mohan</p>
         </div>
-    </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -230,9 +249,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
+        // Initialize AOS
         AOS.init({ duration: 1000, once: true });
 
-        // Custom Cursor
+        // Custom Cursor Logic
         const cursor = document.getElementById('magic-cursor');
         const dot = document.getElementById('cursor-dot');
         window.addEventListener('mousemove', (e) => {
@@ -240,13 +260,13 @@
             gsap.to(cursor, { x: e.clientX - 15, y: e.clientY - 15, duration: 0.2 });
         });
 
-        // Magnetic Effect
+        // Magnetic Effect for Buttons and Items
         document.querySelectorAll('.btn-mass, .contact-info-item').forEach(el => {
             el.addEventListener('mousemove', (e) => {
                 const rect = el.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                gsap.to(el, { x: x * 0.1, y: y * 0.1, duration: 0.3 });
+                gsap.to(el, { x: x * 0.15, y: y * 0.15, duration: 0.3 });
             });
             el.addEventListener('mouseleave', () => {
                 gsap.to(el, { x: 0, y: 0, duration: 0.5 });
