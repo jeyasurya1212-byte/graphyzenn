@@ -43,11 +43,12 @@
 
     <style>
         :root {
-            --primary: #2124B1;
-            --secondary: #4777F5;
+            --primary: #6366f1;
+            --secondary: #a855f7;
             --accent: #00f2ff;
-            --glow: rgba(0, 242, 255, 0.5);
             --dark: #060918;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -55,7 +56,7 @@
             background-color: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none; /* Custom glow cursor */
+            cursor: none; /* Custom Cursor Active */
         }
 
         /* --- MASS CURSOR ANIMATION --- */
@@ -72,53 +73,68 @@
             z-index: 10000; pointer-events: none;
         }
 
-        /* --- UI STYLING --- */
+        /* --- UI STYLES --- */
         .navbar {
             backdrop-filter: blur(20px);
             background: rgba(6, 9, 24, 0.85);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
         }
 
         .hero-header {
-            padding: 180px 0 100px;
-            background: radial-gradient(circle at center, rgba(33, 36, 177, 0.2) 0%, transparent 70%);
+            padding: 150px 0 80px;
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
         }
 
+        /* Breadcrumb Style */
+        .breadcrumb-item a { color: var(--accent); text-decoration: none; }
+        .breadcrumb-item.active { color: rgba(255,255,255,0.6); }
+
+        /* Glass Cards */
+        .feature-item, .team-item, .fact-item {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.5s;
+        }
+
+        .feature-item:hover, .team-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+        }
+
+        /* Magnetic Buttons */
         .btn-mass {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white; border: none; padding: 15px 40px; border-radius: 100px;
-            font-weight: 700; transition: 0.4s; position: relative;
-            box-shadow: 0 0 15px rgba(33, 36, 177, 0.5);
+            border: none; color: white; padding: 12px 35px;
+            border-radius: 50px; font-weight: 700; transition: 0.3s;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+        .btn-mass:hover { transform: scale(1.05); color: #fff; box-shadow: 0 0 25px var(--accent); }
+
+        /* Progress Bars */
+        .progress { height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: visible; }
+        .progress-bar { 
+            border-radius: 10px; 
+            background: linear-gradient(90deg, var(--accent), var(--primary)); 
+            position: relative;
+            box-shadow: 0 0 10px var(--accent);
         }
 
-        .btn-mass:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px var(--accent);
-            color: white;
-        }
-
-        .feature-item, .service-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px; padding: 40px; transition: 0.5s;
-        }
-
-        .feature-item:hover, .service-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
-            transform: translateY(-15px) rotate(1deg);
-        }
-
-        .progress { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; }
-        .progress-bar { background: linear-gradient(90deg, var(--accent), var(--secondary)); box-shadow: 0 0 10px var(--accent); }
-
-        .floating-img { animation: floatHero 6s ease-in-out infinite; }
-        @keyframes floatHero { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
-
-        .dropdown-menu { background: var(--dark); border: 1px solid rgba(255,255,255,0.1); }
+        /* Images */
+        .team-img { border: 3px solid var(--accent); padding: 5px; background: transparent; }
+        
+        .nav-link { color: #fff !important; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent) !important; }
+        
+        .dropdown-menu { background: var(--dark); border: 1px solid var(--border); }
         .dropdown-item { color: #fff; }
-        .dropdown-item:hover { background: var(--primary); color: #fff; }
+        .dropdown-item:hover { background: var(--primary); }
+
+        /* Fact Section Special */
+        .fact-section { background: linear-gradient(90deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1)); border-y: 1px solid var(--border); }
     </style>
 </head>
 
@@ -303,6 +319,7 @@
     </script>
 </body>
 </html>
+
 
 
 
