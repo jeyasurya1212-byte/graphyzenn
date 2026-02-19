@@ -58,17 +58,18 @@
             cursor: none; /* Custom glow cursor */
         }
 
-        /* --- MASS GLOW CURSOR --- */
+        /* --- MASS CURSOR ANIMATION --- */
         #magic-cursor {
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 20px var(--glow), inset 0 0 10px var(--glow);
+            position: fixed; width: 30px; height: 30px;
+            border: 2px solid var(--accent); border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
             transition: transform 0.1s ease-out;
+        }
+        #cursor-dot {
+            position: fixed; width: 8px; height: 8px;
+            background: #fff; border-radius: 50%;
+            z-index: 10000; pointer-events: none;
         }
 
         .cursor-dot {
@@ -324,5 +325,6 @@
     </script>
 </body>
 </html>
+
 
 
